@@ -40,6 +40,9 @@ func main() {
 
 	ns := netsim.NewNetworkSimulator(100, getTime())
 	ns.SetLatency(50)
+	ns.SetPacketLoss(10)
+	ns.SetDuplicates(5)
+	ns.SetJitter(25)
 	tick := time.Tick(16 * time.Millisecond)
 
 	for {

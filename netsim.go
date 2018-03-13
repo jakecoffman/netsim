@@ -35,6 +35,24 @@ func (n *NetworkSimulator) SetLatency(ms float64) {
 	n.updateActive()
 }
 
+// SetJitter sets the packet jitter in ms.
+func (n *NetworkSimulator) SetJitter(ms float64) {
+	n.jitter = ms
+	n.updateActive()
+}
+
+// SetPacketLoss sets the packet loss percentage.
+func (n *NetworkSimulator) SetPacketLoss(percent float64) {
+	n.packetLoss = percent
+	n.updateActive()
+}
+
+// SetDuplicates sets the percentage of chance of duplication.
+func (n *NetworkSimulator) SetDuplicates(percent float64) {
+	n.duplicates = percent
+	n.updateActive()
+}
+
 // updateActive updates the active flag whenever network settings are changed
 func (n *NetworkSimulator) updateActive() {
 	previous := n.active
